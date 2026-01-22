@@ -13,13 +13,13 @@ WORKDIR /workspace
 
 RUN mkdir -p /workspace/src
 
-RUN wget https://raw.githubusercontent.com/tier4/CalibrationTools/tier4/universe/calibration_tools_standalone.repos --directory-prefix=/workspace
+RUN wget https://raw.githubusercontent.com/muraki-t4/CalibrationTools/tier4/universe/calibration_tools_standalone.repos --directory-prefix=/workspace
 
 RUN vcs import src < calibration_tools_standalone.repos
 
-RUN rosdep install -y --from-paths `colcon list --packages-up-to sensor_calibration_tools -p` --ignore-src
+RUN rosdep install -y --from-paths `colcon list --packages-up-to tier4_calibration_views -p` --ignore-src
 
-RUN source /opt/ros/humble/setup.bash && colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-up-to sensor_calibration_tools
+RUN source /opt/ros/humble/setup.bash && colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-up-to tier4_calibration_views
 
 RUN rm -rf /var/lib/apt/lists/*
 
