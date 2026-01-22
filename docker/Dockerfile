@@ -13,7 +13,7 @@ WORKDIR /workspace
 
 RUN mkdir -p /workspace/src
 
-RUN wget https://raw.githubusercontent.com/muraki-t4/CalibrationTools/tier4/universe/calibration_tools_standalone.repos --directory-prefix=/workspace
+RUN wget https://raw.githubusercontent.com/muraki-t4/CalibrationTools/tier4_calibration_views/calibration_tools_standalone.repos --directory-prefix=/workspace
 
 RUN vcs import src < calibration_tools_standalone.repos
 
