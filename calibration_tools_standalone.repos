@@ -2,7 +2,7 @@ repositories:
   calibration_tools:
     type: git
     url: https://github.com/muraki-t4/CalibrationTools.git
-    version: tier4/universe
+    version: tier4_calibration_views
   vendor/ros2_numpy:
     type: git
     url: https://github.com/Box-Robotics/ros2_numpy.git
