@@ -59,14 +59,14 @@ sudo apt-get install python3-vcstool
 
 # Download the calibration tools and its dependencies
 cd workspace
-wget https://raw.githubusercontent.com/tier4/CalibrationTools/tier4/universe/calibration_tools_standalone.repos
+wget https://raw.githubusercontent.com/muraki-t4/CalibrationTools/muraki-t4/universe/calibration_tools_standalone.repos
 vcs import src < calibration_tools_standalone.repos
 
 # Install all the dependencies from rosdep
-rosdep install -y --from-paths `colcon list --packages-up-to sensor_calibration_tools -p` --ignore-src
+rosdep install -y --from-paths `colcon list --packages-up-to tier4_calibration_views -p` --ignore-src
 
 # Build the sensor calibration tools. sensor_calibration_tools is a meta package that guarantees that only the related packages are compiled
-colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-up-to sensor_calibration_tools
+colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-up-to tier4_calibration_views
 ```
 
 ### Standalone installation using Docker (for non-autoware users)
